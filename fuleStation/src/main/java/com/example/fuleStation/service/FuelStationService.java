@@ -18,24 +18,24 @@ public class FuelStationService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public FuelStationDTO saveUser(FuelStationDTO fuelStationDTO){
+    public FuelStationDTO saveFuelStation(FuelStationDTO fuelStationDTO){
 
         fuelStationRepo.save(modelMapper.map(fuelStationRepo, FuelStation.class));
         return fuelStationDTO;
 
     }
 
-    public List<FuelStationDTO> getAllUsers(){
+    public List<FuelStationDTO> getAllFuelStation(){
         List<FuelStation> userList = fuelStationRepo.findAll();
         return modelMapper.map(userList,new TypeToken<List<FuelStationDTO>>(){}.getType());
     }
 
-    public FuelStationDTO updateUser(FuelStationDTO fuelStationDTO){
+    public FuelStationDTO updateFuelStation(FuelStationDTO fuelStationDTO){
         fuelStationRepo.save(modelMapper.map(fuelStationDTO, FuelStation.class));
         return fuelStationDTO;
     }
 
-    public boolean userDelete(FuelStationDTO fuelStationDTO){
+    public boolean fuelStationDelete(FuelStationDTO fuelStationDTO){
         fuelStationRepo.delete(modelMapper.map(fuelStationDTO, FuelStation.class));
         return true;
     }
