@@ -40,4 +40,9 @@ public class FuelStationService {
         return true;
     }
 
+    public FuelStationDTO getStationById(String stationID){
+        FuelStation fuelStation =  fuelStationRepo.getStationByID(stationID);
+        return modelMapper.map(fuelStation, FuelStationDTO.class);
+    }
+
 }
