@@ -24,4 +24,24 @@ public class UserService {
         List<User> users = userRepo.findAll();
         return modelMapper.map(users, new TypeToken<List<UserDTO>>() {}.getType());
     }
+
+    public UserDTO getUserById(int id) {
+        User user = userRepo.findById(id).orElse(null);
+        return modelMapper.map(user, UserDTO.class);
+    }
+
+    public UserDTO saveUser(UserDTO userDTO) {
+        User user = userRepo.save(modelMapper.map(userDTO, User.class));
+        return modelMapper.map(user, UserDTO.class);
+    }
+
+    public UserDTO updateUser(UserDTO userDTO) {
+        User user = userRepo.save(modelMapper.map(userDTO, User.class));
+        return modelMapper.map(user, UserDTO.class);
+    }
+
+    public String deleteUser(int id) {
+        userRepo.deleteById(id);
+        return "User deleted";
+    }
 }

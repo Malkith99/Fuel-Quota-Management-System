@@ -23,4 +23,24 @@ public class OwnerService {
         List<Owner> owners = ownerRepo.findAll();
         return modelMapper.map(owners, new TypeToken<List<OwnerDTO>>() {}.getType());
     }
+
+    public OwnerDTO getOwnerById(int id) {
+        Owner owner = ownerRepo.findById(id).orElse(null);
+        return modelMapper.map(owner, OwnerDTO.class);
+    }
+
+    public OwnerDTO saveOwner(OwnerDTO ownerDTO) {
+        Owner owner = ownerRepo.save(modelMapper.map(ownerDTO, Owner.class));
+        return modelMapper.map(owner, OwnerDTO.class);
+    }
+
+    public OwnerDTO updateOwner(OwnerDTO ownerDTO) {
+        Owner owner = ownerRepo.save(modelMapper.map(ownerDTO, Owner.class));
+        return modelMapper.map(owner, OwnerDTO.class);
+    }
+
+    public String deleteOwner(int id) {
+        ownerRepo.deleteById(id);
+        return "Owner deleted";
+    }
 }
