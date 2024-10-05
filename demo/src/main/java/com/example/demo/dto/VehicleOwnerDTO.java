@@ -14,4 +14,5 @@ public class VehicleOwnerDTO {
     private String name;
     private String password;
     private String vehicleNumberPlate;
+    private int fuelQuota;
 }
