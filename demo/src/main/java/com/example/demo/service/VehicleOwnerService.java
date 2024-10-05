@@ -24,7 +24,7 @@ public class VehicleOwnerService {
         List<VehicleOwner>vehicleOwnerList = vehicleOwnerRepo.findAll();
         return modelMapper.map(vehicleOwnerList, new TypeToken<List<VehicleOwnerDTO>>(){}.getType());
     }
-    public String createVehicleOwner(@RequestBody VehicleOwnerDTO vehicleOwnerDTO){
+    public String createVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO){
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
         return "User Created";
     }
@@ -32,12 +32,12 @@ public class VehicleOwnerService {
         VehicleOwner vehicleOwner = vehicleOwnerRepo.getVehicleOwnerById(vehicleOwnerId);
         return modelMapper.map(vehicleOwner, VehicleOwnerDTO.class);
     }
-    public VehicleOwnerDTO updateProduct(VehicleOwnerDTO vehicleOwnerDTO) {
+    public VehicleOwnerDTO updateVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO) {
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
         return vehicleOwnerDTO;
     }
-    public String deleteProduct(Integer productId) {
-        vehicleOwnerRepo.deleteById(productId);
+    public String deleteVehicleOwner(Integer VehicleOwnerId) {
+        vehicleOwnerRepo.deleteById(VehicleOwnerId);
         return "Product deleted";
     }
 
