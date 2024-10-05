@@ -17,12 +17,20 @@ public class VehicleOwnerController {
     public List<VehicleOwnerDTO> getAllVehicleOwners(){
         return vehicleOwnerService.getAllVehicleOwners();
     }
-    @GetMapping("/createVehicleOwner")
+    @PostMapping("/createVehicleOwner")
     public String createVehicleOwner(@RequestBody VehicleOwnerDTO vehicleOwnerDTO){
         return vehicleOwnerService.createVehicleOwner(vehicleOwnerDTO);
+    }
+    @GetMapping("/getVehicleOwner/{vehicleOwnerId}")
+    public VehicleOwnerDTO getVehicleOwnerById(@PathVariable Integer vehicleOwnerId) {
+        return vehicleOwnerService.getVehicleOwnerById(vehicleOwnerId);
     }
     @PutMapping("/updateVehicleOwner")
     public VehicleOwnerDTO updateVehicleOwner(@RequestBody VehicleOwnerDTO vehicleOwnerDTO) {
         return vehicleOwnerService.updateVehicleOwner(vehicleOwnerDTO);
+    }
+    @DeleteMapping("/deleteVehicleOwner/{vehicleOwnerId}")
+    public String deleteVehicleOwner(@PathVariable Integer vehicleOwnerId) {
+        return vehicleOwnerService.deleteVehicleOwner(vehicleOwnerId);
     }
 }
