@@ -15,4 +15,12 @@ public class VehicleOwnerDTO {
     private String password;
     private String vehicleNumberPlate;
     private int fuelQuota;
+
+    public String getVehicleNumberPlate() {
+        return vehicleNumberPlate;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
