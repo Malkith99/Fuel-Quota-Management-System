@@ -2,7 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.dto.VehicleOwnerDTO;
 import com.example.demo.model.VehicleOwner;
+import com.example.demo.model.VehicleValidation;
 import com.example.demo.repo.VehicleOwnerRepo;
+import com.example.demo.repo.VehicleValidationRepo;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -19,14 +21,26 @@ public class VehicleOwnerService {
     private VehicleOwnerRepo vehicleOwnerRepo;
 
     @Autowired
+    private VehicleValidationRepo vehicleValidationRepo;    // Inject the validation repo
+
+    @Autowired
     private ModelMapper modelMapper;
     public List<VehicleOwnerDTO> getAllVehicleOwners() {
         List<VehicleOwner>vehicleOwnerList = vehicleOwnerRepo.findAll();
         return modelMapper.map(vehicleOwnerList, new TypeToken<List<VehicleOwnerDTO>>(){}.getType());
     }
     public String createVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO){
+
+        // Validate vehicle number plate
+        VehicleValidation vehicleValidation = vehicleValidationRepo.findByVehicleNumberPlate(vehicleOwnerDTO.getVehicleNumberPlate());
+        if (vehicleValidation == null || !vehicleValidation.getOwnerName().equals(vehicleOwnerDTO.getName())) {
+            throw new IllegalArgumentException("Invalid vehicle number plate or owner name");
+        }
+
+        // If validation passes, save the vehicle owner
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
-        return "User Created";
+        return "Vehicle owner registered successfully";
+
     }
     public VehicleOwnerDTO getVehicleOwnerById(Integer vehicleOwnerId) {
         VehicleOwner vehicleOwner = vehicleOwnerRepo.getVehicleOwnerById(vehicleOwnerId);
