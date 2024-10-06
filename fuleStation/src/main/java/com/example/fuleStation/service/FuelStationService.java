@@ -20,14 +20,15 @@ public class FuelStationService {
 
     public FuelStationDTO saveFuelStation(FuelStationDTO fuelStationDTO){
 
-        fuelStationRepo.save(modelMapper.map(fuelStationRepo, FuelStation.class));
+
+        fuelStationRepo.save(modelMapper.map(fuelStationDTO, FuelStation.class));
         return fuelStationDTO;
 
     }
 
     public List<FuelStationDTO> getAllFuelStation(){
-        List<FuelStation> userList = fuelStationRepo.findAll();
-        return modelMapper.map(userList,new TypeToken<List<FuelStationDTO>>(){}.getType());
+        List<FuelStation> stationList = fuelStationRepo.findAll();
+        return modelMapper.map(stationList,new TypeToken<List<FuelStationDTO>>(){}.getType());
     }
 
     public FuelStationDTO updateFuelStation(FuelStationDTO fuelStationDTO){
