@@ -22,5 +22,5 @@ public class FuelStation {
     @Column(name = "fuel_amount")
     private double fuelAmount;
 
-    // Getters and setters...
+
 }
