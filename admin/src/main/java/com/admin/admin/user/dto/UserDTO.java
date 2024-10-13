@@ -9,5 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
     private int id;
+    private String email;
     private String name;
+    private String vehicleNumberPlate;
+    private Integer fuelQuota;
 }

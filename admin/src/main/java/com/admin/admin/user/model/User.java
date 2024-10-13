@@ -13,5 +13,8 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     private int id;
+    private String email;
     private String name;
+    private String vehicleNumberPlate;
+    private Integer fuelQuota;
 }
