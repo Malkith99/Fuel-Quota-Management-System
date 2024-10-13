@@ -39,7 +39,7 @@ const OwnerForm = ({addOwner ,updateOwner,submitted, data ,isEdit}) => {
        }}
        >
         <Grid item xs={12}>
-            <Typography component={'h1'} sx={{color: '#000000'}}>Fuel Station Owner Form</Typography>
+            <Typography component={'h1'} sx={{color: '#000000'}}><b>Fuel Station Owner Form</b></Typography>
         </Grid>
 
        

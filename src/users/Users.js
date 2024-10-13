@@ -32,7 +32,10 @@ const Users = () => {
 
         const payload = {
             id: data.id,
+            email: data.email,
             name: data.name,
+            vehicleNumberPlate: data.vehicleNumberPlate,
+            fuelQuota: data.fuelQuota,
         }
         Axios.post('http://localhost:8080/api/v1/admin/user', payload)
             .then(() => {
@@ -51,7 +54,10 @@ const Users = () => {
 
         const payload = {
             id: data.id,
+            email: data.email,
             name: data.name,
+            vehicleNumberPlate: data.vehicleNumberPlate,
+            fuelQuota: data.fuelQuota,
         }
         Axios.put('http://localhost:8080/api/v1/admin/user', payload)
             .then(() => {
@@ -68,10 +74,6 @@ const Users = () => {
 
     const deleteUser = (data) => {
         setSubmitted(true);
-        /*const payload ={
-            id: data.id,
-            name: data.name,
-        }*/
 
         Axios.delete(`http://localhost:8080/api/v1/admin/user/${data.id}`)
             .then(() => {
