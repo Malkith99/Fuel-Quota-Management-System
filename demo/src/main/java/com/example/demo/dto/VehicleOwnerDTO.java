@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VehicleOwnerDTO {
-    private int id;
+    private String NIC;
     private String email;
     private String name;
     private String password;
-    private String vehicleNumberPlate;
+    private String vehicleNumber;
     private int fuelQuota;
 
     public String getVehicleNumberPlate() {
-        return vehicleNumberPlate;
+        return vehicleNumber;
     }
 
     public String getName() {

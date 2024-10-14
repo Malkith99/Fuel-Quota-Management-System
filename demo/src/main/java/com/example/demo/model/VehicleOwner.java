@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class VehicleOwner {
     @Id
-    private int id;
+    private String NIC;
     private String email;
     private String name;
     private String password;
-    private String vehicleNumberPlate;
+    private String vehicleNumber;
     private int fuelQuota;
 }
