@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VehicleOwnerRepo extends JpaRepository<VehicleOwner,Integer> {
-    @Query(value = "SELECT * FROM product WHERE vehicleOwner_id = ?1", nativeQuery = true)
-    VehicleOwner getVehicleOwnerById(Integer vehicleOwnerId);
+    @Query(value = "SELECT * FROM vehicle_owner WHERE nic = ?1", nativeQuery = true)
+    VehicleOwner getVehicleOwnerById(String vehicleOwnerId);
 }
