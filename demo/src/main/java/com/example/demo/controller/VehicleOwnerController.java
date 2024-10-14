@@ -13,23 +13,26 @@ import java.util.List;
 public class VehicleOwnerController {
     @Autowired
     private VehicleOwnerService vehicleOwnerService;
-    @GetMapping("/getAllVehicleOwners")
+    @GetMapping("/vehicleOwners")
     public List<VehicleOwnerDTO> getAllVehicleOwners(){
         return vehicleOwnerService.getAllVehicleOwners();
     }
-    @PostMapping("/createVehicleOwner")
+    @PostMapping("/vehicleOwner")
     public String createVehicleOwner(@RequestBody VehicleOwnerDTO vehicleOwnerDTO){
+        // Print the request body to the console
+        System.out.println("Received Vehicle Owner Request: " + vehicleOwnerDTO.toString());
+
         return vehicleOwnerService.createVehicleOwner(vehicleOwnerDTO);
     }
-    @GetMapping("/getVehicleOwner/{vehicleOwnerId}")
-    public VehicleOwnerDTO getVehicleOwnerById(@PathVariable Integer vehicleOwnerId) {
+    @GetMapping("/vehicleOwner/{vehicleOwnerId}")
+    public VehicleOwnerDTO getVehicleOwnerById(@PathVariable String vehicleOwnerId) {
         return vehicleOwnerService.getVehicleOwnerById(vehicleOwnerId);
     }
-    @PutMapping("/updateVehicleOwner")
+    @PutMapping("/vehicleOwner")
     public VehicleOwnerDTO updateVehicleOwner(@RequestBody VehicleOwnerDTO vehicleOwnerDTO) {
         return vehicleOwnerService.updateVehicleOwner(vehicleOwnerDTO);
     }
-    @DeleteMapping("/deleteVehicleOwner/{vehicleOwnerId}")
+    @DeleteMapping("/vehicleOwner/{vehicleOwnerId}")
     public String deleteVehicleOwner(@PathVariable Integer vehicleOwnerId) {
         return vehicleOwnerService.deleteVehicleOwner(vehicleOwnerId);
     }
