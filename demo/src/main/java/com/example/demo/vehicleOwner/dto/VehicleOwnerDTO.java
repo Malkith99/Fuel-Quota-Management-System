@@ -1,21 +1,28 @@
-package com.example.demo.model;
+package com.example.demo.owner.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class VehicleOwner {
-    @Id
+public class VehicleOwnerDTO {
     private String NIC;
     private String email;
     private String name;
     private String password;
     private String vehicleNumber;
+    private String vehicleType;
     private int fuelQuota;
+
+
+    public String getVehicleNumberPlate() {
+        return vehicleNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

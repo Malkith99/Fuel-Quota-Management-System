@@ -1,16 +1,15 @@
-package com.example.demo.service;
+package com.example.demo.owner.service;
 
-import com.example.demo.dto.VehicleOwnerDTO;
-import com.example.demo.model.VehicleOwner;
-import com.example.demo.model.VehicleValidation;
-import com.example.demo.repo.VehicleOwnerRepo;
-import com.example.demo.repo.VehicleValidationRepo;
+import com.example.demo.owner.dto.VehicleOwnerDTO;
+import com.example.demo.owner.model.VehicleOwner;
+//import com.example.demo.model.VehicleValidation;
+import com.example.demo.owner.repo.VehicleOwnerRepo;
+//import com.example.demo.repo.VehicleValidationRepo;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -20,8 +19,8 @@ public class VehicleOwnerService {
     @Autowired
     private VehicleOwnerRepo vehicleOwnerRepo;
 
-    @Autowired
-    private VehicleValidationRepo vehicleValidationRepo;    // Inject the validation repo
+//    @Autowired
+//    private VehicleValidationRepo vehicleValidationRepo;    // Inject the validation repo
 
     @Autowired
     private ModelMapper modelMapper;
@@ -32,17 +31,17 @@ public class VehicleOwnerService {
     public String createVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO){
 
         // Validate vehicle number plate
-        VehicleValidation vehicleValidation = vehicleValidationRepo.findByVehicleNumberPlate(vehicleOwnerDTO.getVehicleNumberPlate());
-        if (vehicleValidation == null || !vehicleValidation.getOwnerName().equals(vehicleOwnerDTO.getName())) {
-            throw new IllegalArgumentException("Invalid vehicle number plate or owner name");
-        }
+//        VehicleValidation vehicleValidation = vehicleValidationRepo.findByVehicleNumberPlate(vehicleOwnerDTO.getVehicleNumberPlate());
+//        if (vehicleValidation == null || !vehicleValidation.getOwnerName().equals(vehicleOwnerDTO.getName())) {
+//            throw new IllegalArgumentException("Invalid vehicle number plate or owner name");
+//        }
 
         // If validation passes, save the vehicle owner
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
         return "Vehicle owner registered successfully";
 
     }
-    public VehicleOwnerDTO getVehicleOwnerById(Integer vehicleOwnerId) {
+    public VehicleOwnerDTO getVehicleOwnerById(String vehicleOwnerId) {
         VehicleOwner vehicleOwner = vehicleOwnerRepo.getVehicleOwnerById(vehicleOwnerId);
         return modelMapper.map(vehicleOwner, VehicleOwnerDTO.class);
     }
