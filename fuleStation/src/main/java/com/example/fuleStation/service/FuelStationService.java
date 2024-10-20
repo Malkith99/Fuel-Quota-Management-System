@@ -18,12 +18,15 @@ public class FuelStationService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public FuelStationDTO saveFuelStation(FuelStationDTO fuelStationDTO){
+    public FuelStationDTO saveFuelStation(FuelStationDTO fuelStationDTO) {
+        // Map the DTO to an entity
+        FuelStation fuelStationEntity = modelMapper.map(fuelStationDTO, FuelStation.class);
 
+        // Save the entity and retrieve the saved instance with generated ID
+        FuelStation savedStation = fuelStationRepo.save(fuelStationEntity);
 
-        fuelStationRepo.save(modelMapper.map(fuelStationDTO, FuelStation.class));
-        return fuelStationDTO;
-
+        // Map the saved entity back to DTO and return it
+        return modelMapper.map(savedStation, FuelStationDTO.class);
     }
 
     public List<FuelStationDTO> getAllFuelStation(){

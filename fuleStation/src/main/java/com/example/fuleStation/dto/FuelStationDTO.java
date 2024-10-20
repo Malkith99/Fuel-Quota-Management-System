@@ -8,8 +8,8 @@ import lombok.*;
 @Setter
 @Data
 public class FuelStationDTO {
-//    private Long id;
+    private int id;
     private String name;
     private String location;
-    private double fuelAmount;
+    private int fuelAmount;
 }

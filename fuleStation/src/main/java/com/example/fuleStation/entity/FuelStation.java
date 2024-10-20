@@ -11,7 +11,7 @@ import lombok.Setter;
 public class FuelStation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "name")
     private String name;
@@ -20,7 +20,7 @@ public class FuelStation {
     private String location;
 
     @Column(name = "fuel_amount")
-    private double fuelAmount;
+    private int fuelAmount;
 
 
 }
