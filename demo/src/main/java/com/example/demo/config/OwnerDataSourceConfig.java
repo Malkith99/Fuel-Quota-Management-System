@@ -19,11 +19,11 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "com.example.demo.owner.repo", // specify the correct repo package
+        basePackages = "com.example.demo.vehicleOwner.repo", // specify the correct repo package
         entityManagerFactoryRef = "vehicleOwnerEntityManagerFactory", // Use for vehicleOwner DB
         transactionManagerRef = "vehicleOwnerTransactionManager"      // For vehicleOwner DB transactions
 )
-public class MotorTrafficDataSourceConfig {
+public class OwnerDataSourceConfig {
     @Primary
     @Bean(name = "vehicleOwnerDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
