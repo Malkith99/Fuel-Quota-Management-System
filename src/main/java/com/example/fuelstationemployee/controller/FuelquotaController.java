@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @CrossOrigin
 @RequestMapping(value = "api/v1/fuelstation/")
@@ -22,7 +21,7 @@ public class FuelquotaController {
     }
 
     @GetMapping("/getfuelquota/{fuelquotaId}")
-    public FuelquotaDTO getOrderById(@PathVariable Integer fuelquotaId) {
+    public FuelquotaDTO getOrderById(@PathVariable String fuelquotaId) {
         return fuelquotaService.getAllFuelQuotaById(fuelquotaId);
     }
 
