@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Fuelquota {
     @Id
-    private int id;
+    private String id;
     private int usedQuota;
     private String stationId;
     private String timeStamp;
