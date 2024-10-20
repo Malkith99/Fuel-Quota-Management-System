@@ -19,21 +19,21 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "com.example.demo.owner.repo", // specify the correct repo package
-        entityManagerFactoryRef = "vehicleOwnerEntityManagerFactory", // Use for vehicleOwner DB
-        transactionManagerRef = "vehicleOwnerTransactionManager"      // For vehicleOwner DB transactions
+        basePackages = "com.example.demo.motorTrafficDep.repo", // specify the correct repo package
+        entityManagerFactoryRef = "motorTrafficEntityManagerFactory", // Use for vehicleOwner DB
+        transactionManagerRef = "motorTrafficTransactionManager"      // For vehicleOwner DB transactions
 )
 public class MotorTrafficDataSourceConfig {
-    @Primary
-    @Bean(name = "vehicleOwnerDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource")
+
+    @Bean(name = "motorTrafficDataSource")
+    @ConfigurationProperties(prefix = "spring.motorTraffic.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Primary
-    @Bean(name = "vehicleOwnerEntityManagerFactory")
-    public LocalContainerEntityManagerFactoryBean vehicleOwnerEntityManagerFactory(
+
+    @Bean(name = "motorTrafficEntityManagerFactory")
+    public LocalContainerEntityManagerFactoryBean motorTrafficEntityManagerFactory(
             EntityManagerFactoryBuilder builder, @Qualifier("vehicleOwnerDataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
@@ -42,10 +42,10 @@ public class MotorTrafficDataSourceConfig {
                 .build();
     }
 
-    @Primary
-    @Bean(name = "vehicleOwnerTransactionManager")
+
+    @Bean(name = "motorTrafficTransactionManager")
     public PlatformTransactionManager vehicleOwnerTransactionManager(
-            @Qualifier("vehicleOwnerEntityManagerFactory") EntityManagerFactory vehicleOwnerEntityManagerFactory) {
-        return new JpaTransactionManager(vehicleOwnerEntityManagerFactory);
+            @Qualifier("motorTrafficEntityManagerFactory") EntityManagerFactory motorTrafficEntityManagerFactory) {
+        return new JpaTransactionManager(motorTrafficEntityManagerFactory);
     }
 }
