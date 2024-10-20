@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FuelquotaDTO {
-    private int id;
+    private String id;
     private int usedQuota;
     private String stationId;
     private String timeStamp;

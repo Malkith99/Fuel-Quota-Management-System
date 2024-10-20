@@ -26,7 +26,7 @@ public class FuelquotaService {
         return modelMapper.map(orderList,new org.modelmapper.TypeToken<List<FuelquotaDTO>>(){}.getType());
     }
 
-    public FuelquotaDTO getAllFuelQuotaById(Integer fuelquotaId){
+    public FuelquotaDTO getAllFuelQuotaById(String fuelquotaId){
         Fuelquota fuelquota = fuelquotaRepo.getQuotaById(fuelquotaId);
         return modelMapper.map(fuelquota, FuelquotaDTO.class);
     }
