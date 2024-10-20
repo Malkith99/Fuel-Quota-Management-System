@@ -1,9 +1,9 @@
-package com.example.demo.owner.service;
+package com.example.demo.vehicleOwner.service;
 
-import com.example.demo.owner.dto.VehicleOwnerDTO;
-import com.example.demo.owner.model.VehicleOwner;
+import com.example.demo.vehicleOwner.dto.VehicleOwnerDTO;
+import com.example.demo.vehicleOwner.model.VehicleOwner;
 //import com.example.demo.model.VehicleValidation;
-import com.example.demo.owner.repo.VehicleOwnerRepo;
+import com.example.demo.vehicleOwner.repo.VehicleOwnerRepo;
 //import com.example.demo.repo.VehicleValidationRepo;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -49,7 +49,7 @@ public class VehicleOwnerService {
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
         return vehicleOwnerDTO;
     }
-    public String deleteVehicleOwner(Integer VehicleOwnerId) {
+    public String deleteVehicleOwner(String VehicleOwnerId) {
         vehicleOwnerRepo.deleteById(VehicleOwnerId);
         return "Product deleted";
     }

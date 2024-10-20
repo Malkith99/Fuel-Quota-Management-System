@@ -1,4 +1,4 @@
-package com.example.demo.owner.dto;
+package com.example.demo.vehicleOwner.dto;
 
 
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
-package com.example.demo.owner.repo;
+package com.example.demo.vehicleOwner.repo;
 
-import com.example.demo.owner.model.VehicleOwner;
+import com.example.demo.vehicleOwner.model.VehicleOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

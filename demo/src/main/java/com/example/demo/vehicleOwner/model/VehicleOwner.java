@@ -1,4 +1,4 @@
-package com.example.demo.owner.model;
+package com.example.demo.vehicleOwner.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
