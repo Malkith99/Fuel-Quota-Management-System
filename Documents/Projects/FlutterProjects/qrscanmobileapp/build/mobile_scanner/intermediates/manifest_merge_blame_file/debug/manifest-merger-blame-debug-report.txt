@@ -1,0 +1,22 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="dev.steenbakker.mobile_scanner" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="21" />
+7-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.CAMERA" />
+9-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:4:5-65
+9-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:4:22-62
+10
+11    <uses-feature
+11-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:5-85
+12        android:name="android.hardware.camera"
+12-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:19-57
+13        android:required="false" />
+13-->C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:58-82
+14
+15</manifest>

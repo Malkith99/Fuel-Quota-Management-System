@@ -1,0 +1,35 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:1:1-6:12
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:1:1-6:12
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:1:1-6:12
+	package
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:2:3-43
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:4:5-65
+	android:name
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:4:22-62
+uses-feature#android.hardware.camera
+ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:5-85
+	android:required
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:58-82
+	android:name
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml:5:19-57
+uses-sdk
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Witharana\AppData\Local\Pub\Cache\hosted\pub.dev\mobile_scanner-6.0.1\android\src\main\AndroidManifest.xml

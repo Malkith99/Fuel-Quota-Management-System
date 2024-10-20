@@ -1,0 +1,1 @@
+ C:\\Users\\Witharana\\Documents\\Projects\\FlutterProjects\\qrscanmobileapp\\.dart_tool\\flutter_build\\5f478bb731c32c1a3ec1cf16939c4b26\\native_assets.yaml: 
