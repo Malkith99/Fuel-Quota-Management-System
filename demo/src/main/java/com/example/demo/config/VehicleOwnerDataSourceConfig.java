@@ -12,31 +12,34 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
 @EnableJpaRepositories(
         basePackages = "com.example.demo.vehicleOwner.repo", // specify the correct repo package
         entityManagerFactoryRef = "vehicleOwnerEntityManagerFactory", // Use for vehicleOwner DB
         transactionManagerRef = "vehicleOwnerTransactionManager"      // For vehicleOwner DB transactions
 )
-public class OwnerDataSourceConfig {
+public class VehicleOwnerDataSourceConfig {
     @Primary
     @Bean(name = "vehicleOwnerDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource() {
-        return DataSourceBuilder.create().build();
+//    @ConfigurationProperties(prefix = "spring.datasource")
+    public DataSource vehicleOwnerDataSource() {
+
+        return DataSourceBuilder.create()
+                .url("jdbc:mysql://localhost:3306/vehicleOwnerDB?createDatabaseIfNotExist=true")
+                .username("root")
+                .password("99Mathematics")
+                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .build();
     }
 
     @Primary
     @Bean(name = "vehicleOwnerEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean vehicleOwnerEntityManagerFactory(
-            EntityManagerFactoryBuilder builder, @Qualifier("vehicleOwnerDataSource") DataSource dataSource) {
+            EntityManagerFactoryBuilder builder) {
         return builder
-                .dataSource(dataSource)
+                .dataSource(vehicleOwnerDataSource())
                 .packages("com.example.demo.vehicleOwner.model")  // Ensure VehicleValidation resides in this package
                 .persistenceUnit("vehicleOwner")  // Identifier for persistence context
                 .build();

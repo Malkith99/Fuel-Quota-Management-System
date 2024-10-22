@@ -1,10 +1,11 @@
 package com.example.demo.vehicleOwner.service;
 
+import com.example.demo.motorTrafficDep.repo.MotorTrafficRepo;
+import com.example.demo.motorTrafficDep.service.MotorTrafficService;
 import com.example.demo.vehicleOwner.dto.VehicleOwnerDTO;
 import com.example.demo.vehicleOwner.model.VehicleOwner;
-//import com.example.demo.model.VehicleValidation;
+
 import com.example.demo.vehicleOwner.repo.VehicleOwnerRepo;
-//import com.example.demo.repo.VehicleValidationRepo;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -19,8 +20,9 @@ public class VehicleOwnerService {
     @Autowired
     private VehicleOwnerRepo vehicleOwnerRepo;
 
-//    @Autowired
-//    private VehicleValidationRepo vehicleValidationRepo;    // Inject the validation repo
+    @Autowired
+    private MotorTrafficService motorTrafficService;
+
 
     @Autowired
     private ModelMapper modelMapper;
@@ -29,12 +31,14 @@ public class VehicleOwnerService {
         return modelMapper.map(vehicleOwnerList, new TypeToken<List<VehicleOwnerDTO>>(){}.getType());
     }
     public String createVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO){
+        String vehicleOwnerId=vehicleOwnerDTO.getId();
+        String vehicleNumber = vehicleOwnerDTO.getVehicleNumber();
 
-        // Validate vehicle number plate
-//        VehicleValidation vehicleValidation = vehicleValidationRepo.findByVehicleNumberPlate(vehicleOwnerDTO.getVehicleNumberPlate());
-//        if (vehicleValidation == null || !vehicleValidation.getOwnerName().equals(vehicleOwnerDTO.getName())) {
-//            throw new IllegalArgumentException("Invalid vehicle number plate or owner name");
-//        }
+        // Check if the vehicle exists in motorTrafficDB
+        boolean isValidVehicle = motorTrafficService.validateVehicleOwner(vehicleOwnerId, vehicleNumber);
+        if (!isValidVehicle) {
+            return "Validation failed: No matching record in motorTraffic database.";
+        }
 
         // If validation passes, save the vehicle owner
         vehicleOwnerRepo.save(modelMapper.map(vehicleOwnerDTO, VehicleOwner.class));
@@ -51,7 +55,7 @@ public class VehicleOwnerService {
     }
     public String deleteVehicleOwner(String VehicleOwnerId) {
         vehicleOwnerRepo.deleteById(VehicleOwnerId);
-        return "Product deleted";
+        return "Owner  deleted";
     }
 
 }
