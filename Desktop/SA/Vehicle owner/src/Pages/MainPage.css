@@ -1,0 +1,255 @@
+/* Reset and global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Home Container with Parallax Background */
+.homeContainer {
+    background-image: url('../Images/main7.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: rgb(7, 128, 128);
+    text-align: center;
+    background-color: #f5f6f7;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #f9f7f7;
+    margin: 0 10px;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    color: #b5bac4;
+}
+
+.navbar .signUpButton,
+.navbar .logInButton {
+    background-color: #a8acb5;
+    color: rgb(4, 4, 4);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+.navbar .signUpButton:hover,
+.navbar .logInButton:hover {
+    background-color: #748fab;
+    transform: translateY(-5px); /* Elevation effect */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.navbar .signUpButton:active,
+.navbar .logInButton:active {
+    transform: scale(0.98); /* Click effect */
+}
+
+/* Title with Animations */
+.title {
+    font-size: 3.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: #f9f9f9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3), 0px -1px 5px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(180deg, #ffffff 40%, rgba(255, 255, 255, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: slideIn 1.5s forwards;
+    position: relative;
+}
+
+/* Slide In Animation for Title */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Decorative bars */
+.title::before,
+.title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+    border-radius: 10px;
+}
+
+.title::before {
+    top: -10px;
+}
+
+.title::after {
+    bottom: -10px;
+}
+
+/* Subtitle Styling */
+.subtitle {
+    font-size: 1.3em;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    max-width: 700px;
+    margin-top: 20px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+/* Fade-in Effect for Body and Subtitle */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Main Content Wrapper */
+.contentWrapper {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-top: 80px;
+}
+
+/* Feature Icons and Text */
+.featureLeft, .featureRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.featureItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featureIcon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+}
+
+.featureText {
+    font-size: 1em;
+    color: #2c2b2b;
+}
+
+/* Analytics Cards with Glassmorphism Effect */
+.analytics-card {
+    flex: 1 1 calc(25% - 20px);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.analytics-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chart-container {
+    flex: 1 1 100%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .signUpButton, .logInButton {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .contentWrapper {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+
+    .featureIcon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .featureText {
+        font-size: 0.9em;
+    }
+}
+
+/* Import Custom Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@300&display=swap');

@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* No background image applied globally */
+  }
+  
+  .homeContainerF {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    background-image: url('../Images/HomeImage3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #f9f7f7;
+    margin: 0 10px;
+    padding: 10px;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover,
+  .navbar a:focus {
+    color: #b5bac4;
+  }
+  
+  .activeNavLink {
+    color: #d8dbde;
+    border-bottom: 3px solid #007bff;
+  }
+  
+  .navbar .signUpButton {
+    background-color: #a8acb5;
+    color: rgb(4, 4, 4);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    outline: none;
+  }
+  
+  .navbar .signUpButton:hover {
+    background-color: #748fab;
+  }
+  .navbar .logInButton {
+    background-color: #a8acb5;
+    color: rgb(4, 4, 4);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    outline: none;
+  }
+  
+  .navbar .logInButton:hover {
+    background-color: #748fab;
+  }
+  
+  
+  .contentWrapperF {
+    gap:100px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-top: 80px;
+  }
+  
+  .featureLeft,
+  .featureRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align feature items */
+    justify-content: center; /* Center vertically in case of extra space */
+  }
+  
+  .mainHeaderF {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    z-index: 2; /* Make sure it's above the background image */
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 3.5em; /* Large font size for emphasis */
+    font-family: 'Montserrat', sans-serif; /* Elegant font choice */
+    font-weight: 800; /* Very bold for a strong, clean look */
+    color: #f9f9f9; /* White or light color for contrast */
+    letter-spacing: 2px; /* Slight letter spacing for modern feel */
+    text-transform: uppercase; /* Uppercase text for strong branding */
+    position: relative; /* Allows for custom decoration using pseudo-elements */
+  
+    /* Decorative text shadow */
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.3), /* Shadow for depth */
+                 0px -1px 5px rgba(255, 255, 255, 0.5); /* Glow effect */
+  
+    /* Adding a subtle reflection */
+    background: linear-gradient(180deg, #ffffff 40%, rgba(255,255,255,0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #e52e71, #ff8a00); /* Decorative bar at the top */
+    border-radius: 10px;
+  }
+  
+  .title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71); /* Decorative bar at the bottom */
+    border-radius: 10px;
+  }
+  
+  .subtitle {
+    font-size: 1.3em;
+    color: #ffffff; /* White for contrast */
+    font-family: 'Open Sans', sans-serif; /* Simple, elegant font for the subtitle */
+    max-width: 700px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 1px; /* Slight spacing for a modern look */
+  }
+  
+  /* Optional: Load custom fonts from Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@300&display=swap');
+  
+  
+  .title {
+    font-size: 2.5em;
+    color: #010f0f;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    font-size: 1em;
+    color: #f7e9e9;
+    margin-bottom: 30px;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .signUpButton {
+    background-color: #a8acb5;
+    color: rgb(4, 4, 4);
+    border: none;
+    padding: 25px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    outline: none;
+  }
+  
+  .signUpButton:hover {
+    background-color: #748fab;
+  }
+  
+  .mainImage {
+    width: 0%;
+    max-width: 0px; /* Adjust based on actual image size */
+    height: auto;
+    margin: 0 auto 50px auto;
+  }
+  
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 50px; /* Adjust the gap between feature items */
+    margin-bottom: 50px;
+  }
+  
+  .featureItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .featureIcon {
+    width: 64px; /* Adjust based on actual icon size */
+    height: 64px; /* Adjust based on actual icon size */
+    margin-bottom: 10px;
+  }
+  
+  .featureText {
+    font-size: 1em;
+    color: #2c2b2b;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .features {
+      flex-direction: column;
+    }
+  
+    .mainHeader {
+      margin: 20px 0;
+    }
+  
+    .subtitle {
+      margin-bottom: 20px;
+    }
+  
+    .signUpButton {
+      padding: 10px 20px;
+    }
+  }
+  
+  .analytics-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .analytics-card {
+    flex: 1 1 calc(25% - 20px);
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .chart-container {
+    flex: 1 1 100%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  

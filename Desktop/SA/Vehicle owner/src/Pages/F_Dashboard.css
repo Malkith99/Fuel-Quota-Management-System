@@ -1,0 +1,220 @@
+/* Apply background to the body for full page coverage */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('../Images/fuelD.jpg');
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Center the background image */
+    height: 100vh; /* Set the height to 100% of the viewport */
+    width: 100vw; /* Set the width to 100% of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Overall container */
+  .home-cont {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Add slight transparency to container */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    padding: 40px;
+  }
+  
+  .home-container:hover {
+    transform: translateY(-5px); /* Add slight movement on hover */
+  }
+  
+  /* Header Styling */
+  .home-header {
+    margin-bottom: 30px;
+  }
+  
+  .home-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #007bff, #e52e71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Other styling (no changes from here) */
+  /* Action Container Styling */
+  .action-container {
+    margin-bottom: 50px;
+  }
+  
+  .register-button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+  
+  .register-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  /* Modal Styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .modal.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.4s ease-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+  }
+  
+  /* Modal Header */
+  .modal-content h2 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Form Styling */
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .modal-content label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .modal-content input,
+  .modal-content select {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  .modal-content input:focus,
+  .modal-content select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Form Action Buttons */
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .submit-button,
+  .cancel-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3);
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+  }
+  
+  .cancel-button:hover {
+    background-color: #e53935;
+    box-shadow: 0 8px 20px rgba(244, 67, 54, 0.4);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .home-container {
+        padding: 20px;
+    }
+  
+    .home-header h1 {
+        font-size: 2rem;
+    }
+  
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+  
+    .submit-button,
+    .cancel-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+  
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+  }
+  

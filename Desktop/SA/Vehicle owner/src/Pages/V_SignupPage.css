@@ -1,0 +1,67 @@
+/* AuthForm.css */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Images/HomeImage3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:100dvh; /* This sets the height to be 100% of the viewport height */
+
+    overflow: hidden; 
+  }
+  
+  .auth-card {
+    background: #e0e0e0;
+    opacity: 0.95;
+    border-radius: 25px;
+    box-shadow: 20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    background: #e0e0e0;
+    border-radius: 25px;
+    box-shadow: inset 20px 20px 60px #bebebe,
+                inset -20px -20px 60px #ffffff;
+    width: calc(100% - 24px); /* account for padding */
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .auth-button {
+    border: none;
+    outline: none;
+    background: #8f94fb;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 6px 6px 12px #bebebe,
+                -6px -6px 12px #ffffff;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-button:hover {
+    background: #727cf5;
+  }
+  
+  .auth-button.google {
+    background: #db4437;
+  }
+  
+  .auth-button.google:hover {
+    background: #c1351d;
+  }
+  
