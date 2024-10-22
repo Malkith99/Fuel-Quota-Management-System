@@ -19,6 +19,7 @@
     <module>vehicleOwner</module>
     <module>fuelStation</module>
     <module>admin</module>
+    <module>qrScan</module>
   </modules>
 
   <build>
