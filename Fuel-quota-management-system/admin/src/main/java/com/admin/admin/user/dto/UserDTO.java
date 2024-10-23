@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    private String NIC;
+    private String nic;
     private String email;
     private String name;
     private String vehicleNumber;
