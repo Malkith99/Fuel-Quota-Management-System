@@ -17,11 +17,10 @@ public class AdminController {
     @Autowired
     private RestTemplate restTemplate;
 
-    // Assuming the user microservice runs on port 8081 and owner microservice on port 8082
     private final String USER_SERVICE_URL = "http://localhost:8082/api/v1/"; // URL for User microservice
     private final String OWNER_SERVICE_URL = "http://localhost:8081/api/fuel_station"; // URL for Owner microservice
 
-    // User CRUD operations
+    // Vehicle User CRUD operations
     @GetMapping("/users")
     public List<UserDTO> getUsers() {
         return restTemplate.getForObject(USER_SERVICE_URL + "/vehicleOwners", List.class);
@@ -49,7 +48,7 @@ public class AdminController {
         return "User deleted successfully";
     }
 
-    // Owner CRUD operations
+    // Fuel Station Owner CRUD operations
     @GetMapping("/owners")
     public List<OwnerDTO> getOwners() {
         return restTemplate.getForObject(OWNER_SERVICE_URL + "/getFuelStation", List.class);
