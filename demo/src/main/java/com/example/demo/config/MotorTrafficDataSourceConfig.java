@@ -31,7 +31,6 @@ public class MotorTrafficDataSourceConfig {
                 .build();
     }
 
-
     @Bean(name = "motorTrafficEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean motorTrafficEntityManagerFactory(
             EntityManagerFactoryBuilder builder) {
