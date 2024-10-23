@@ -58,4 +58,11 @@ public class VehicleOwnerService {
         return "Owner  deleted";
     }
 
+    public VehicleOwnerDTO login(String email, String password) {
+        VehicleOwner vehicleOwner=vehicleOwnerRepo.findByEmailAndPassword(email,password);
+        if(vehicleOwner==null){
+            throw new IllegalArgumentException("Invalid email or password");
+        }
+        return modelMapper.map(vehicleOwner, VehicleOwnerDTO.class);
+    }
 }

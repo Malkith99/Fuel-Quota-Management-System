@@ -16,6 +16,7 @@ public class VehicleOwnerDTO {
     private String vehicleNumber;
     private String vehicleType;
     private int fuelQuota;
+    private String qrCode;
     
 
 

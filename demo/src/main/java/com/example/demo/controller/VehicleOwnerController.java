@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -37,6 +38,19 @@ public class VehicleOwnerController {
         System.out.println("Received MotorTraffic Request: " + motorTrafficRecordDTO.toString());
 
         return motorTrafficService.createMotorTrafficRecord(motorTrafficRecordDTO);
+    }
+    @PostMapping ("/auth")
+    public ResponseEntity<?> login(@RequestBody Map<String,String> loginData) {
+        String email= loginData.get("email");
+        String password= loginData.get("password");
+        try {
+            // Try to authenticate the user with the provided email and password
+            VehicleOwnerDTO vehicleOwner =  vehicleOwnerService.login(email,password);
+            return ResponseEntity.ok(vehicleOwner);  // Return the authenticated user if successful
+        } catch (IllegalArgumentException e) {
+            // Return an error response in case of invalid credentials
+            return ResponseEntity.status(401).body("Invalid email or password");
+        }
     }
     @GetMapping("/vehicleOwner/{vehicleOwnerId}")
     public ResponseEntity<VehicleOwnerDTO> getVehicleOwnerById(@PathVariable String vehicleOwnerId) {
