@@ -3,18 +3,10 @@ package com.admin.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.admin.admin.user.service.UserService;
-import com.admin.admin.owner.service.OwnerService;
-import com.admin.admin.user.dto.UserDTO;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+//import com.admin.admin.user.dto.UserDTO;
 import com.admin.admin.owner.dto.OwnerDTO;
 
 @RestController
@@ -23,61 +15,65 @@ import com.admin.admin.owner.dto.OwnerDTO;
 public class AdminController {
 
     @Autowired
-    private UserService userService;
+    private RestTemplate restTemplate;
 
-    @Autowired
-    private OwnerService ownerService;
+    // Assuming the user microservice runs on port 8081 and owner microservice on port 8082
+//    private final String USER_SERVICE_URL = "http://localhost:8082/api/v1/user"; // URL for User microservice
+    private final String OWNER_SERVICE_URL = "http://localhost:8081/api/fuel_station"; // URL for Owner microservice
 
     // User CRUD operations
-    @GetMapping("/users")
-    public List<UserDTO> getUsers() {
-        return userService.getAllUsers();
-    }
-
-    @GetMapping("/user/{id}")
-    public UserDTO getUserById(@PathVariable int id) {
-        return userService.getUserById(id);
-    }
-
-    @PostMapping("/user")
-    public UserDTO addUser(@RequestBody UserDTO userDTO) {
-        return userService.saveUser(userDTO);
-    }
-
-    @PutMapping("/user")
-    public UserDTO updateUser(@RequestBody UserDTO userDTO) {
-        return userService.updateUser(userDTO);
-    }
-
-    @DeleteMapping("/user/{id}")
-    public String deleteUser(@PathVariable int id) {
-        return userService.deleteUser(id);
-    }
+//    @GetMapping("/users")
+//    public List<UserDTO> getUsers() {
+//        return restTemplate.getForObject(USER_SERVICE_URL + "/users", List.class);
+//    }
+//
+//    @GetMapping("/user/{id}")
+//    public UserDTO getUserById(@PathVariable int id) {
+//        return restTemplate.getForObject(USER_SERVICE_URL + "/user/" + id, UserDTO.class);
+//    }
+//
+//    @PostMapping("/user")
+//    public UserDTO addUser(@RequestBody UserDTO userDTO) {
+//        return restTemplate.postForObject(USER_SERVICE_URL + "/user", userDTO, UserDTO.class);
+//    }
+//
+//    @PutMapping("/user")
+//    public UserDTO updateUser(@RequestBody UserDTO userDTO) {
+//        restTemplate.put(USER_SERVICE_URL + "/user", userDTO);
+//        return userDTO;
+//    }
+//
+//    @DeleteMapping("/user/{id}")
+//    public String deleteUser(@PathVariable int id) {
+//        restTemplate.delete(USER_SERVICE_URL + "/user/" + id);
+//        return "User deleted successfully";
+//    }
 
     // Owner CRUD operations
     @GetMapping("/owners")
     public List<OwnerDTO> getOwners() {
-        return ownerService.getAllOwners();
+        return restTemplate.getForObject(OWNER_SERVICE_URL + "/getFuelStation", List.class);
     }
 
     @GetMapping("/owner/{id}")
     public OwnerDTO getOwnerById(@PathVariable int id) {
-        return ownerService.getOwnerById(id);
+        return restTemplate.getForObject(OWNER_SERVICE_URL + "/getFuelStationById/" + id, OwnerDTO.class);
     }
 
     @PostMapping("/owner")
     public OwnerDTO addOwner(@RequestBody OwnerDTO ownerDTO) {
-        return ownerService.saveOwner(ownerDTO);
+        return restTemplate.postForObject(OWNER_SERVICE_URL + "/saveFuelStation", ownerDTO, OwnerDTO.class);
     }
 
     @PutMapping("/owner")
     public OwnerDTO updateOwner(@RequestBody OwnerDTO ownerDTO) {
-        return ownerService.updateOwner(ownerDTO);
+        restTemplate.put(OWNER_SERVICE_URL + "/updateFuelStation", ownerDTO);
+        return ownerDTO;
     }
 
     @DeleteMapping("/owner/{id}")
     public String deleteOwner(@PathVariable int id) {
-        return ownerService.deleteOwner(id);
+        restTemplate.delete(OWNER_SERVICE_URL + "/owner/" + id);
+        return "Owner deleted successfully";
     }
-    
 }
