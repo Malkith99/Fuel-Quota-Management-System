@@ -6,7 +6,6 @@ import com.example.demo.motorTrafficDep.service.MotorTrafficService;
 import com.example.demo.vehicleOwner.dto.FuelManagementDTO;
 import com.example.demo.vehicleOwner.dto.VehicleOwnerDTO;
 import com.example.demo.vehicleOwner.model.VehicleOwner;
-
 import com.example.demo.vehicleOwner.repo.VehicleOwnerRepo;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -25,9 +24,6 @@ public class VehicleOwnerService {
 
     @Autowired
     private MotorTrafficService motorTrafficService;
-    @Autowired
-    private FuelManagementRepo fuelManagementRepo;
-
 
     @Autowired
     private ModelMapper modelMapper;
@@ -66,7 +62,6 @@ public class VehicleOwnerService {
         return vehicleOwnerDTO;
     }
     public String deleteVehicleOwner(String VehicleOwnerId) {
-        fuelManagementRepo.deleteById(VehicleOwnerId);
         vehicleOwnerRepo.deleteById(VehicleOwnerId);
         return "Owner  deleted";
     }
