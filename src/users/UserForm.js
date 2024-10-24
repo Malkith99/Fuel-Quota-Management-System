@@ -2,29 +2,29 @@ import {Grid, Typography, Button, Input} from "@mui/material"
 import { useEffect, useState } from "react";
 const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
 
-    const [id, setId] =useState(0);
-    const [email, setEmail] =useState('');
-    const [name, setName] =useState('');
-    const [vehicleNumberPlate, setVehicleNumberPlate] =useState('');
-    const [fuelQuota, setFuelQuota] =useState(0);
+    const [nic, setNic] =useState('');
+    const [vehicleNumber, setVehicleNumber] =useState('');
+    const [vehicleType, setVehicleType] =useState('');
+    const [allocatedFuelQuota, setAllocatedFuelQuota] =useState(0);
+    const [remainingFuelQuota, setRemainingFuelQuota] =useState(0);
 
     useEffect(() => {
         if(!submitted) {
-            setId(0);
-            setEmail('');
-            setName('');
-            setVehicleNumberPlate('');
-            setFuelQuota('0');
+            setNic('');
+            setVehicleNumber('');
+            setVehicleType('');
+            setAllocatedFuelQuota(0);
+            setRemainingFuelQuota(0);
         }
     }, [submitted]);
 
     useEffect(() => {
-        if(data?.id && data.id !== 0){
-            setId(data.id);
-            setEmail(data.email);
-            setName(data.name);
-            setVehicleNumberPlate(data.vehicleNumberPlate);
-            setFuelQuota(data.fuelQuota);
+        if(data?.nic && data.nic !== 0){
+            setNic(data.nic);
+            setAllocatedFuelQuota(data.allocatedFuelQuota);
+            setRemainingFuelQuota(data.remainingFuelQuota);
+            setVehicleNumber(data.vehicleNumber);
+            setVehicleType(data.vehicleType);
         }
         }, [data]);
 
@@ -54,48 +54,21 @@ const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
                 color: '#000000',
                 marginRight : '20px',
                 fontSize:'16px',
-                width: '250px',
+                width: '200px',
                 display:'block',
 
                }}
             >
-                ID
+                NIC
 
             </Typography>
             <Input 
-                type="number"
-                id='id'
-                name="id"
-                sx={{ width: '400px' }}
-                value={id}
-                onChange={e => setId(e.target.value)}
-
-                />
-        </Grid>
-
-        <Grid item xs={12} sm={8} sx={{display: 'flex'}}>
-            <Typography
-               component={'label'}
-               htmlFor="id"
-               sx={{
-                color: '#000000',
-                marginRight : '20px',
-                fontSize:'16px',
-                width: '250px',
-                display:'block',
-
-               }}
-               >
-                E-mail
-
-               </Typography>
-               <Input 
                 type="text"
-                id='email'
-                name="email"
-                sx={{ width: '400px' }}
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                id='nic'
+                name="nic"
+                sx={{ width: '200px' }}
+                value={nic}
+                onChange={e => setNic(e.target.value)}
 
                 />
         </Grid>
@@ -108,34 +81,7 @@ const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
                 color: '#000000',
                 marginRight : '20px',
                 fontSize:'16px',
-                width: '250px',
-                display:'block',
-
-               }}
-               >
-                Name
-
-               </Typography>
-               <Input 
-                type="text"
-                id='name'
-                name="name"
-                sx={{ width: '400px' }}
-                value={name}
-                onChange={e => setName(e.target.value)}
-
-                />
-        </Grid>
-
-        <Grid item xs={12} sm={8} sx={{display: 'flex'}}>
-            <Typography
-               component={'label'}
-               htmlFor="id"
-               sx={{
-                color: '#000000',
-                marginRight : '20px',
-                fontSize:'16px',
-                width: '250px',
+                width: '200px',
                 display:'block',
 
                }}
@@ -145,11 +91,11 @@ const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
                </Typography>
                <Input 
                 type="text"
-                id='vehicleNumberPlate'
-                name="vehicleNumberPlate"
-                sx={{ width: '400px' }}
-                value={vehicleNumberPlate}
-                onChange={e => setVehicleNumberPlate(e.target.value)}
+                id='vehicleNumber'
+                name="vehicleNumber"
+                sx={{ width: '200px' }}
+                value={vehicleNumber}
+                onChange={e => setVehicleNumber(e.target.value)}
 
                 />
         </Grid>
@@ -162,21 +108,75 @@ const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
                 color: '#000000',
                 marginRight : '20px',
                 fontSize:'16px',
-                width: '250px',
+                width: '200px',
                 display:'block',
 
                }}
                >
-                Fuel Quota
+                Vehicle Type
+
+               </Typography>
+               <Input 
+                type="text"
+                id='vehicleType'
+                name="vehicleType"
+                sx={{ width: '200px' }}
+                value={vehicleType}
+                onChange={e => setVehicleType(e.target.value)}
+
+                />
+        </Grid>
+
+        <Grid item xs={12} sm={8} sx={{display: 'flex'}}>
+            <Typography
+               component={'label'}
+               htmlFor="id"
+               sx={{
+                color: '#000000',
+                marginRight : '20px',
+                fontSize:'16px',
+                width: '200px',
+                display:'block',
+
+               }}
+               >
+                Allocated Fuel Quota
 
                </Typography>
                <Input 
                 type="number"
-                id='fuelQuota'
-                name="fuelQuota"
-                sx={{ width: '400px' }}
-                value={fuelQuota}
-                onChange={e => setFuelQuota(e.target.value)}
+                id='allocatedFuelQuota'
+                name="allocatedFuelQuota"
+                sx={{ width: '200px' }}
+                value={allocatedFuelQuota}
+                onChange={e => setAllocatedFuelQuota(e.target.value)}
+
+                />
+        </Grid>
+
+        <Grid item xs={12} sm={8} sx={{display: 'flex'}}>
+            <Typography
+               component={'label'}
+               htmlFor="id"
+               sx={{
+                color: '#000000',
+                marginRight : '20px',
+                fontSize:'16px',
+                width: '200px',
+                display:'block',
+
+               }}
+               >
+                Remaining Fuel Quota
+
+               </Typography>
+               <Input 
+                type="number"
+                id='remainingFuelQuota'
+                name="remainingFuelQuota"
+                sx={{ width: '200px' }}
+                value={remainingFuelQuota}
+                onChange={e => setRemainingFuelQuota(e.target.value)}
 
                 />
         </Grid>
@@ -196,12 +196,9 @@ const UserForm = ({addUser ,updateUser,submitted, data ,isEdit}) => {
             }
 
         }}
-        onClick={() => isEdit ? updateUser({id, email, name, vehicleNumberPlate, fuelQuota}) : addUser({id, email, name, vehicleNumberPlate, fuelQuota})}
-        >
-            {
-                isEdit? 'Update' : 'Add'
-            }
-        </Button>
+        onClick={() => updateUser({ nic, vehicleNumber, vehicleType, allocatedFuelQuota, remainingFuelQuota })}>
+                Update
+            </Button>
 
        </Grid>
 

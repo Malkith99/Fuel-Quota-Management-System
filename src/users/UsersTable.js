@@ -9,10 +9,10 @@ const UsersTable = ({rows , selectedUser , deleteUser}) => {
             <TableHead>
                 <TableRow>
                     <TableCell>ID  </TableCell>
-                    <TableCell>E-mail</TableCell>
-                    <TableCell>Name</TableCell>
                     <TableCell>Number Plate</TableCell>
-                    <TableCell>Fuel Quota</TableCell>
+                    <TableCell>Vehicle Type</TableCell>
+                    <TableCell>Allocated Fuel Quota</TableCell>
+                    <TableCell>Remaining Fuel Quota</TableCell>
                     <TableCell>Actions</TableCell>
 
                 </TableRow>
@@ -24,15 +24,15 @@ const UsersTable = ({rows , selectedUser , deleteUser}) => {
             {
                rows.length >  0 ?  rows.map(row => (
                    <TableRow key={row.id} sx={{'&:last-child td, &:last-child th' : {border : 0 }}}>
-                    <TableCell component='th' scope= "row">{row.id}</TableCell>
-                    <TableCell component='th' scope= "row">{row.email}</TableCell>
-                    <TableCell component='th' scope= "row">{row.name}</TableCell>
-                    <TableCell component='th' scope= "row">{row.vehicleNumberPlate}</TableCell>
-                    <TableCell component='th' scope= "row">{row.fuelQuota}</TableCell>
+                    <TableCell component='th' scope= "row">{row.nic}</TableCell>
+                    <TableCell component='th' scope= "row">{row.vehicleNumber}</TableCell>
+                    <TableCell component='th' scope= "row">{row.vehicleType}</TableCell>
+                    <TableCell component='th' scope= "row">{row.allocatedFuelQuota}</TableCell>
+                    <TableCell component='th' scope= "row">{row.remainingFuelQuota}</TableCell>
                     <TableCell >
                         <Button 
                           sx={{margin: '0px 10px'}}
-                          onClick={()=> selectedUser({id: row.id, email: row.email ,name: row.name, vehicleNumberPlate: row.vehicleNumberPlate, fuelQuota: row.fuelQuota})}
+                          onClick={()=> selectedUser({nic: row.nic, vehicleNumber: row.vehicleNumber ,vehicleType: row.vehicleType, allocatedFuelQuota: row.allocatedFuelQuota, remainingFuelQuota: row.remainingFuelQuota})}
                         >
                             Update
                         </Button>

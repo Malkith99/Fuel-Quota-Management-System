@@ -31,11 +31,11 @@ const Users = () => {
         setSubmitted(true);
 
         const payload = {
-            id: data.id,
-            email: data.email,
-            name: data.name,
-            vehicleNumberPlate: data.vehicleNumberPlate,
-            fuelQuota: data.fuelQuota,
+            nic: data.nic,
+            vehicleNumber: data.vehicleNumber,
+            vehicleType: data.vehicleType,
+            allocatedFuelQuota: data.allocatedFuelQuota,
+            remainingFuelQuota: data.remainingFuelQuota,
         }
         Axios.post('http://localhost:8080/api/v1/admin/user', payload)
             .then(() => {
@@ -53,11 +53,11 @@ const Users = () => {
         setSubmitted(true);
 
         const payload = {
-            id: data.id,
-            email: data.email,
-            name: data.name,
-            vehicleNumberPlate: data.vehicleNumberPlate,
-            fuelQuota: data.fuelQuota,
+            nic: data.nic,
+            vehicleNumber: data.vehicleNumber,
+            vehicleType: data.vehicleType,
+            allocatedFuelQuota: data.allocatedFuelQuota,
+            remainingFuelQuota: data.remainingFuelQuota,
         }
         Axios.put('http://localhost:8080/api/v1/admin/user', payload)
             .then(() => {
@@ -75,7 +75,7 @@ const Users = () => {
     const deleteUser = (data) => {
         setSubmitted(true);
 
-        Axios.delete(`http://localhost:8080/api/v1/admin/user/${data.id}`)
+        Axios.delete(`http://localhost:8080/api/v1/admin/user/${data.nic}`)
             .then(() => {
                 console.log("success");
                 getUsers();
