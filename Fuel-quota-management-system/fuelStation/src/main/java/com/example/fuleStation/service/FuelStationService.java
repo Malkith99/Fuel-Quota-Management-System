@@ -39,9 +39,13 @@ public class FuelStationService {
         return fuelStationDTO;
     }
 
-    public boolean fuelStationDelete(FuelStationDTO fuelStationDTO){
-        fuelStationRepo.delete(modelMapper.map(fuelStationDTO, FuelStation.class));
-        return true;
+//    public boolean fuelStationDelete(FuelStationDTO fuelStationDTO){
+//        fuelStationRepo.delete(modelMapper.map(fuelStationDTO, FuelStation.class));
+//        return true;
+//    }
+    public String deleteFuelStation(int stationID) {
+        fuelStationRepo.deleteById(stationID);
+        return "Owner  deleted";
     }
 
     public FuelStationDTO getStationById(String stationID){

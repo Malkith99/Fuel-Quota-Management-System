@@ -29,9 +29,13 @@ public class FuelStationController {
         return fuelStationService.updateFuelStation(fuelStationDTO);
     }
 
-    @DeleteMapping("/deleteFuelStation")
-    public boolean deleteFuelStation(@RequestBody FuelStationDTO fuelStationDTO){
-        return fuelStationService.fuelStationDelete(fuelStationDTO);
+//    @DeleteMapping("/deleteFuelStation")
+//    public boolean deleteFuelStation(@RequestBody FuelStationDTO fuelStationDTO){
+//        return fuelStationService.fuelStationDelete(fuelStationDTO);
+//    }
+    @DeleteMapping("/deleteFuelStation/{stationID}")
+    public String deleteFuelStation(@PathVariable int stationID) {
+        return fuelStationService.deleteFuelStation(stationID);
     }
 
     @GetMapping("/getFuelStationById/{stationID}")

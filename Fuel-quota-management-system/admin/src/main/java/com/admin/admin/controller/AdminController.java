@@ -72,7 +72,7 @@ public class AdminController {
 
     @DeleteMapping("/owner/{id}")
     public String deleteOwner(@PathVariable int id) {
-        restTemplate.delete(OWNER_SERVICE_URL + "/owner/" + id);
+        restTemplate.delete(OWNER_SERVICE_URL + "/deleteFuelStation/" + id);
         return "Owner deleted successfully";
     }
 }
