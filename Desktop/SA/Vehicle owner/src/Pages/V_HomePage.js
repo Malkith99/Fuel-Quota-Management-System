@@ -2,16 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './V_HomePage.css';
-import mainImage from '../Images/HomeImage2.jpg';
-import homeIcon from '../Images/HomeImage.jpg';
+
 
 
 const V_HomePage = () => {
   const navigate = useNavigate();
 
-  const navigateToSignup = () => {
-    navigate('/vehicle-owner-signup');
-  };
+  // const navigateToSignup = () => {
+  //   navigate('/vehicle-owner-signup');
+  // };
 
   const navigateToLogin = () => {
     navigate('/vehicle-owner-login');
@@ -24,7 +23,7 @@ const V_HomePage = () => {
         <a href="#" className="activeNavLink">Home</a>
         <a href="/vehicle-owner-dashboard" className="navbarLink">Dashboard</a>
         <a href="" className="navbarLink">Analytics</a>
-        <button className="signUpButton" onClick={navigateToSignup}>SIGN UP</button>
+        {/* <button className="signUpButton" onClick={navigateToSignup}>SIGN UP</button> */}
         <button className="logInButton" onClick={navigateToLogin}>LOGIN</button>
       
       </nav>

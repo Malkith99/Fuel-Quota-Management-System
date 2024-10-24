@@ -11,29 +11,11 @@ import F_LoginPage from './Pages/F_LoginPage.js';
 import F_DashboardPage from './Pages/F_DashboardPage.js';
 
 import MainPage from './Pages/MainPage.js';
-import './App.css';
+//import './App.css';
 
 
 
-// const App = () => {
-//   // Static sample data (replace with real data if needed)
-//   const data = [
-//     { timestamp: Date.now(), current: 10, voltage: 230, frequency: 50, power: 2300 },
-//     { timestamp: Date.now() + 1000, current: 11, voltage: 231, frequency: 50.2, power: 2341 },
-//     // Add more sample data as needed
-//   ];
 
-//   const prepareChartData = (key) => ({
-//     labels: data.map(d => new Date(d.timestamp).toLocaleTimeString()),
-//     datasets: [
-//       {
-//         label: key,
-//         data: data.map(d => d[key]),
-//         fill: false,
-//         borderColor: 'rgba(75,192,192,1)',
-//       },
-//     ],
-//   });
 
   const App = () => {
     return (

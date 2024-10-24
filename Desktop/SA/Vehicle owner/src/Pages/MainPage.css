@@ -253,3 +253,41 @@ body {
 
 /* Import Custom Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@300&display=swap');
+
+/* Description Box Styling */
+.descriptionBox {
+    position: absolute; /* Or you can use 'relative' if not in a specific position */
+    top: 20%;
+    left: 5%;
+    width: 300px; /* Adjust width as needed */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    border-radius: 12px; /* Rounded corners for a professional look */
+    z-index: 5;
+    text-align: left;
+}
+
+.descriptionBox h2 {
+    font-size: 1.8em;
+    font-family: 'Montserrat', sans-serif;
+    color: #077f80; /* Title color */
+    margin-bottom: 10px;
+}
+
+.descriptionBox p {
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+    color: #2c2b2b; /* Text color */
+    line-height: 1.5;
+    text-align: justify; /* Justify the text for a cleaner look */
+}
+
+/* Add media query to make it responsive */
+@media (max-width: 768px) {
+    .descriptionBox {
+        position: static;
+        margin: 20px auto;
+        width: 90%; /* Adjust for smaller screens */
+    }
+}

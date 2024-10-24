@@ -1,23 +1,41 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import V_RegistrationPopup from './V_RegistrationPopup'; 
+// Import the popup component
 // import './AuthForm.css'; 
-
 
 function V_LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isPopupOpen, setIsPopupOpen] = useState(false); // State to control popup
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    // Simulated function to handle form submission
-    const handleLogin = (e) => {
+    // Handle form submission for login
+    const handleLogin =async (e) => {
         e.preventDefault();
-
-        // Simulating a login success
-        console.log('Login successful with email:', email);
-
-        // Redirect to the dashboard as a simulation of a successful login
-        navigate('/V_dashboard');
+        setError('');  // Clear previous error
+        try {
+            const response = await axios.post('http://localhost:8080/api/v1/auth', {
+                email,
+                password,
+            });
+            
+            // If login is successful, save user data to local storage
+            localStorage.setItem('user', JSON.stringify(response.data));
+            
+            // Redirect to /home page after successful login
+            navigate('/V_dashboard', { state: { nic: response.data.nic } });
+        } catch (error) {
+            console.error('Login failed:', error);
+            setError('Invalid Email or Password');
+        }
+       
     };
+
+    // Handle popup open/close for registration
+    const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
 
     return (
         <div className="auth-container">
@@ -29,16 +47,25 @@ function V_LoginPage() {
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                     <input
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
+                    {error && <p className="error">{error}</p>}
                     <button type="submit" className="auth-button">Login</button>
                 </form>
-                <p><a href="/signup">Create an account</a></p>
+                <p>
+                    <button onClick={openPopup} className="register-link">
+                        Register the Vehicle
+                    </button>
+                </p>
+
+                {isPopupOpen && <V_RegistrationPopup onClose={closePopup} />}
             </div>
         </div>
     );
