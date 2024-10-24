@@ -48,7 +48,7 @@ function RegistrationPage() {
         }
         setFuelQuota(quota);
 
-        const newVehicleOwner={nic,email, name, password,vehicleNumber,fuelQuota:quota}; 
+        const newVehicleOwner={nic,email, name, password,vehicleNumber,vehicleType,fuelQuota:quota}; 
         console.log(newVehicleOwner);       
         try {
             const response = await axios.post('http://localhost:8080/api/v1/vehicleOwner', newVehicleOwner);
@@ -58,7 +58,26 @@ function RegistrationPage() {
             alert("Signup successful!");
         } catch (error) {
             console.log(error);
-        }        
+            if (error.response) {
+                if (error.response.status === 409) {
+                    alert("Error: " + error.response.data); // Conflict (Vehicle owner already exists)
+                } else if (error.response.status === 400) {
+                    alert("Validation Error: " + error.response.data); // Bad request (Vehicle validation failed)
+                } else {
+                    alert("An unexpected error occurred.");
+                }
+            } else if (error.request) {
+                // The request was made, but no response was received
+                console.log(error.request);
+                alert("No response from the server.");
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.log('Error', error.message);
+                alert("An error occurred: " + error.message);
+            }
+
+        }
+            
     };
 
     // Function to download the QR code as an image
@@ -87,7 +106,7 @@ function RegistrationPage() {
         try {
             const qrCodeBase64 = getQrCodeBase64(); // Convert QR code to base64
             console.log(qrCodeBase64);
-            const updatedVehicleOwner = { nic,email, name, password,vehicleNumber,fuelQuota, qrCode: qrCodeBase64 }; // Include QR code in the request
+            const updatedVehicleOwner = { nic,email, name, password,vehicleNumber,vehicleType,fuelQuota, qrCode: qrCodeBase64 }; // Include QR code in the request
             console.log(updatedVehicleOwner);
             const response = await axios.put('http://localhost:8080/api/v1/vehicleOwner', updatedVehicleOwner);
             console.log(response.status);
