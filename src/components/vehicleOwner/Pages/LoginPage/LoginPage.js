@@ -1,61 +1,74 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './LoginPage.css'; // Add CSS as needed
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./LoginPage.css"; // Add CSS as needed
 
 function LoginPage() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setError('');  // Clear previous error
-        try {
-            const response = await axios.post('http://localhost:8080/api/v1/auth', {
-                email,
-                password,
-            });
-            
-            // If login is successful, save user data to local storage
-            localStorage.setItem('user', JSON.stringify(response.data));
-            
-            // Redirect to /home page after successful login
-            navigate('/profile', { state: { nic: response.data.nic } });
-        } catch (error) {
-            console.error('Login failed:', error);
-            setError('Invalid Email or Password');
-        }
-    };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(""); // Clear previous error
+    try {
+      const response = await axios.post("http://localhost:8080/api/v1/auth", {
+        email,
+        password,
+      });
 
-    return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                {error && <p className="error">{error}</p>}
-                <button type="submit" className="btn btn-primary">Login</button>
-            </form>
+      // If login is successful, save user data to local storage
+      localStorage.setItem("user", JSON.stringify(response.data));
+
+      // Redirect to /profile page after successful login
+      navigate("/profile", { state: { nic: response.data.nic } });
+    } catch (error) {
+      console.error("Login failed:", error);
+      setError("Invalid Email or Password");
+    }
+  };
+
+  return (
+    <div className="container login-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            className="form-control"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-    );
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        {error && <p className="text-danger">{error}</p>}
+        <button type="submit" className="btn btn-primary">
+          Login
+        </button>
+      </form>
+      <p className="register-prompt">
+        Haven't an account?{" "}
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/VO/registration")}
+        >
+          Register
+        </button>
+      </p>
+    </div>
+  );
 }
 
 export default LoginPage;

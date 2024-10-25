@@ -44,17 +44,18 @@
 
 .form-button {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background-color: #007bff;
-    color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
 }
 
 .form-button:hover {
-    background-color: #0056b3;
+    background-color: rgba(88, 130, 237, 0.733);
 }
 
 @media (max-width: 768px) {

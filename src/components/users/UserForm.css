@@ -1,5 +1,6 @@
 .form-container {
-    width: 800%;
+    width: 100%;
+    /* Correct the width */
     max-width: 400px;
     margin: 0 auto;
     padding: 30px;
@@ -19,19 +20,23 @@
 .form-group {
     margin-bottom: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    /* Ensure labels and inputs are aligned */
     align-items: center;
-    /* Aligns items vertically center */
 }
 
 .form-label {
     font-size: 16px;
     color: #000000;
-    width: 200px;
+    width: 150px;
+    /* Adjust width for alignment */
+    text-align: right;
+    /* Align text to the right */
 }
 
 .form-input {
-    width: 250px;
+    width: 200px;
+    /* Adjust width of the inputs */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -41,7 +46,7 @@
     width: 100%;
     padding: 10px;
     background-color: #007bff;
-    color: #007bff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;

@@ -74,7 +74,7 @@ const FuelStationForm = ({ fuelStation }) => {
           />
         </div>
 
-        <button type="submit" className="form-button">
+        <button type="submit" className="btn btn-primary">
           {fuelStation ? "Update" : "Save"}
         </button>
       </form>

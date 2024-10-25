@@ -1,156 +1,203 @@
-import { Grid, Typography, Button, Input } from "@mui/material";
+import { Grid, Typography, Button, Input, FormHelperText } from "@mui/material";
 import { useEffect, useState } from "react";
-import "./OwnerForm.css"; // Import the custom CSS file
+import "./OwnerForm.css";
 
-const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
-  const [nic, setNic] = useState("");
-  const [vehicleNumber, setVehicleNumber] = useState("");
-  const [vehicleType, setVehicleType] = useState("");
-  const [allocatedFuelQuota, setAllocatedFuelQuota] = useState(0);
-  const [remainingFuelQuota, setRemainingFuelQuota] = useState(0);
+const OwnerForm = ({ addOwner, updateOwner, submitted, data, isEdit }) => {
+  const [id, setId] = useState(0);
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [fuelAmount, setFuelAmount] = useState(0);
+  const [errors, setErrors] = useState({}); // To track validation errors
 
   useEffect(() => {
     if (!submitted) {
-      setNic("");
-      setVehicleNumber("");
-      setVehicleType("");
-      setAllocatedFuelQuota(0);
-      setRemainingFuelQuota(0);
+      setId(0);
+      setName("");
+      setLocation("");
+      setFuelAmount(0);
+      setErrors({}); // Reset errors on form reset
     }
   }, [submitted]);
 
   useEffect(() => {
-    if (data?.nic && data.nic !== 0) {
-      setNic(data.nic);
-      setAllocatedFuelQuota(data.allocatedFuelQuota);
-      setRemainingFuelQuota(data.remainingFuelQuota);
-      setVehicleNumber(data.vehicleNumber);
-      setVehicleType(data.vehicleType);
+    if (data?.id && data.id !== 0) {
+      setId(data.id);
+      setName(data.name);
+      setLocation(data.location);
+      setFuelAmount(data.fuelAmount);
     }
   }, [data]);
 
+  const validateForm = () => {
+    const newErrors = {};
+    if (!name) newErrors.name = "Name is required.";
+    if (!location) newErrors.location = "Location is required.";
+    if (fuelAmount <= 0)
+      newErrors.fuelAmount = "Fuel Amount must be greater than zero.";
+    return newErrors;
+  };
+
+  const handleSubmit = () => {
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors); // Set validation errors
+      return;
+    }
+
+    // Clear errors if validation is successful
+    setErrors({});
+    isEdit
+      ? updateOwner({ id, name, location, fuelAmount })
+      : addOwner({ id, name, location, fuelAmount });
+  };
+
   return (
-    <div className="form-container">
-      <Typography component={"h1"} className="form-title">
-        <b>{isEdit ? "Edit User" : "Add User"}</b>
-      </Typography>
-
-      <Grid container spacing={2} className="form-grid">
-        <Grid item xs={12} className="form-group">
-          <Typography component={"label"} htmlFor="nic" className="form-label">
-            NIC
-          </Typography>
-          <Input
-            type="text"
-            id="nic"
-            name="nic"
-                      className="form-input"
-            value={nic}
-            onChange={(e) => setNic(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12} className="form-group">
-          <Typography
-            component={"label"}
-            htmlFor="vehicleNumber"
-            className="form-label"
-          >
-            Number Plate
-          </Typography>
-          <Input
-            type="text"
-            id="vehicleNumber"
-            name="vehicleNumber"
-            className="form-input"
-            value={vehicleNumber}
-            onChange={(e) => setVehicleNumber(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12} className="form-group">
-          <Typography
-            component={"label"}
-            htmlFor="vehicleType"
-            className="form-label"
-          >
-            Vehicle Type
-          </Typography>
-          <Input
-            type="text"
-            id="vehicleType"
-            name="vehicleType"
-            className="form-input"
-            value={vehicleType}
-            onChange={(e) => setVehicleType(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12} className="form-group">
-          <Typography
-            component={"label"}
-            htmlFor="allocatedFuelQuota"
-            className="form-label"
-          >
-            Allocated Fuel Quota
-          </Typography>
-          <Input
-            type="number"
-            id="allocatedFuelQuota"
-            name="allocatedFuelQuota"
-            className="form-input"
-            value={allocatedFuelQuota}
-            onChange={(e) => setAllocatedFuelQuota(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12} className="form-group">
-          <Typography
-            component={"label"}
-            htmlFor="remainingFuelQuota"
-            className="form-label"
-          >
-            Remaining Fuel Quota
-          </Typography>
-          <Input
-            type="number"
-            id="remainingFuelQuota"
-            name="remainingFuelQuota"
-            className="form-input"
-            value={remainingFuelQuota}
-            onChange={(e) => setRemainingFuelQuota(e.target.value)}
-          />
-        </Grid>
-
-        <Button
-          sx={{
-            width: "100%",
-            padding: "10px",
-            backgroundColor: "#007bff",
-            color: "white",
-            borderRadius: "5px",
-            marginTop: "20px",
-            fontSize: "16px",
-            textAlign: "center",
-            "&:hover": {
-              backgroundColor: "#0056b3",
-            },
-          }}
-          onClick={() =>
-            updateUser({
-              nic,
-              vehicleNumber,
-              vehicleType,
-              allocatedFuelQuota,
-              remainingFuelQuota,
-            })
-          }
-        >
-          {isEdit ? "Update" : "Save"}
-        </Button>
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        backgroundColor: "#ffffff",
+        marginBottom: "30px",
+        display: "block",
+        width: "900px",
+        maxWidth: "100%",
+      }}
+    >
+      <Grid item xs={12}>
+        <Typography component={"h1"} sx={{ color: "#000000" }}>
+          <b>Fuel Station Owner Form</b>
+        </Typography>
       </Grid>
-    </div>
+
+      <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component={"label"}
+          htmlFor="id"
+          sx={{
+            color: "#000000",
+            marginRight: "20px",
+            fontSize: "16px",
+            width: "100px",
+            display: "block",
+          }}
+        >
+          ID
+        </Typography>
+        <Input
+          type="number"
+          id="id"
+          name="id"
+          sx={{ width: "400px" }}
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+          required // Mark field as required
+        />
+      </Grid>
+
+      <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component={"label"}
+          htmlFor="name"
+          sx={{
+            color: "#000000",
+            marginRight: "20px",
+            fontSize: "16px",
+            width: "100px",
+            display: "block",
+          }}
+        >
+          Name
+        </Typography>
+        <Input
+          type="text"
+          id="name"
+          name="name"
+          sx={{ width: "400px" }}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required // Mark field as required
+        />
+        {errors.name && <FormHelperText error>{errors.name}</FormHelperText>}{" "}
+        {/* Error message */}
+      </Grid>
+
+      <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component={"label"}
+          htmlFor="location"
+          sx={{
+            color: "#000000",
+            marginRight: "20px",
+            fontSize: "16px",
+            width: "100px",
+            display: "block",
+          }}
+        >
+          Location
+        </Typography>
+        <Input
+          type="text"
+          id="location"
+          name="location"
+          sx={{ width: "400px" }}
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          required // Mark field as required
+        />
+        {errors.location && (
+          <FormHelperText error>{errors.location}</FormHelperText>
+        )}{" "}
+        {/* Error message */}
+      </Grid>
+
+      <Grid item xs={12} sm={6} sx={{ display: "flex" }}>
+        <Typography
+          component={"label"}
+          htmlFor="fuelAmount"
+          sx={{
+            color: "#000000",
+            marginRight: "20px",
+            fontSize: "16px",
+            width: "100px",
+            display: "block",
+          }}
+        >
+          Fuel
+        </Typography>
+        <Input
+          type="number"
+          id="fuelAmount"
+          name="fuelAmount"
+          sx={{ width: "400px" }}
+          value={fuelAmount}
+          onChange={(e) => setFuelAmount(e.target.value)}
+          required // Mark field as required
+        />
+        {errors.fuelAmount && (
+          <FormHelperText error>{errors.fuelAmount}</FormHelperText>
+        )}{" "}
+        {/* Error message */}
+      </Grid>
+
+      <Button
+        sx={{
+          margin: "auto",
+          marginBottom: "20px",
+          backgroundColor: "#007bff",
+          color: "#000000",
+          marginLeft: "15px",
+          marginTop: "20px",
+          "&:hover": {
+            opacity: "0.7",
+            backgroundColor: "#007bff",
+          },
+        }}
+        onClick={handleSubmit} // Call handleSubmit
+      >
+        {isEdit ? "Update" : "Add"}
+      </Button>
+    </Grid>
   );
 };
 
-export default UserForm;
+export default OwnerForm;

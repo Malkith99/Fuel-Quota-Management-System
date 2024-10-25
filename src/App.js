@@ -12,26 +12,24 @@ import AdminTable from "./components/admin/OwnersTable";
 import UserForm from "./components/users/UserForm";
 import Users from "./components/users/Users";
 import UsersTable from "./components/users/UsersTable";
+import HomePage from "./components/homePage";
 
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<FuelStationForm />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      
+      <Route path="/" element={<HomePage />} />
+      <Route path="/fuelstation" element={<FuelStationForm />} />
+      {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+
       <Route path="/VO/login" element={<OwnerLogin />} />
       <Route path="/VO/profile" element={<OwnerProfile />} />
       <Route path="/VO/registration" element={<OwnerRegistration />} />
 
-      <Route path="/admin/form" element={<AdminForm />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/admin/table" element={<AdminTable />} />
 
-      <Route path="/users/form" element={<UserForm />} />
       <Route path="/users" element={<Users />} />
-      <Route path="/users/table" element={<UsersTable />} />
 
       {/* Adjust route if you want to use FuelStationForm */}
     </Routes>
