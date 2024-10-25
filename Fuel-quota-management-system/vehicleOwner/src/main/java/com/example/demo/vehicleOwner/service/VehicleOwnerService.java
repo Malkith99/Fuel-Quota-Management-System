@@ -34,8 +34,6 @@ public class VehicleOwnerService {
     public String createVehicleOwner(VehicleOwnerDTO vehicleOwnerDTO){
         String vehicleOwnerId=vehicleOwnerDTO.getId();
         String vehicleNumber = vehicleOwnerDTO.getVehicleNumber();
-        String vehicleType= vehicleOwnerDTO.getVehicleType();
-        int fuelQuota=vehicleOwnerDTO.getFuelQuota();
 
         boolean isVehicleOwnerExist=vehicleOwnerRepo.existsById(vehicleOwnerId);
         if (isVehicleOwnerExist){

@@ -14,7 +14,8 @@ public class VehicleOwnerDTO {
     private String password;
     private String vehicleNumber;
     private String vehicleType;
-    private int fuelQuota;
+    private int allocatedFuelQuota;
+    private int remainingFuelQuota;
     private String qrCode;
     
 
@@ -25,9 +26,6 @@ public class VehicleOwnerDTO {
     }
     public String getVehicleType() {
         return vehicleType;
-    }
-    public int getFuelQuota() {
-        return fuelQuota;
     }
 
 }
