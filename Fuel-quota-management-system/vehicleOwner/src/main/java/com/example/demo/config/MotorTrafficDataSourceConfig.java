@@ -26,7 +26,7 @@ public class MotorTrafficDataSourceConfig {
         return DataSourceBuilder.create()
                 .url("jdbc:mysql://localhost:3306/motorTrafficDB?createDatabaseIfNotExist=true")
                 .username("root")
-                .password("m123")
+                .password("99Mathematics")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }

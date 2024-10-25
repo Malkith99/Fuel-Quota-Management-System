@@ -29,7 +29,7 @@ public class VehicleOwnerDataSourceConfig {
         return DataSourceBuilder.create()
                 .url("jdbc:mysql://localhost:3306/vehicleOwnerDB?createDatabaseIfNotExist=true")
                 .username("root")
-                .password("m123")
+                .password("99Mathematics")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }
