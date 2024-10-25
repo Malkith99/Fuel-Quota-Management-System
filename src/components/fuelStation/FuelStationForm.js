@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import {
   saveFuelStation,
   updateFuelStation,
-} from "../services/fuelStationService";
+} from "../../services/fuelStationService";
 import "./FuelStationForm.css"; // Import the custom CSS file
+import { useNavigate } from 'react-router-dom';
 
 const FuelStationForm = ({ fuelStation }) => {
   const [name, setName] = useState(fuelStation ? fuelStation.name : "");
@@ -11,6 +12,8 @@ const FuelStationForm = ({ fuelStation }) => {
     fuelStation ? fuelStation.location : ""
   );
   const [amount, setAmount] = useState(fuelStation ? fuelStation.amount : "");
+  const navigate = useNavigate();
+  // const generateId = Math.random();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,10 +25,15 @@ const FuelStationForm = ({ fuelStation }) => {
         .catch((error) => console.error("Error updating station:", error));
     } else {
       saveFuelStation(stationData)
-        .then((response) => console.log("Station saved:", response.data))
+        .then((response) => {
+          console.log("Station saved:", response.data);
+          // Navigate and send the saved station data
+          navigate("/dashboard", { state: { stationData: response.data } });
+        })
         .catch((error) => console.error("Error saving station:", error));
     }
   };
+
 
   return (
     <div className="form-container">

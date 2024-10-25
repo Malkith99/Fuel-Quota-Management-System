@@ -1,0 +1,71 @@
+.table-container {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1000px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table-head {
+    background-color: #007bff;
+}
+
+.table-head th {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+}
+
+.table-row {
+    transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+    background-color: #f2f2f2;
+}
+
+.table-cell {
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+.table-cell-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.action-button {
+    padding: 8px 16px;
+    margin: 0px 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button.update {
+    background-color: #28a745;
+}
+
+.action-button.delete {
+    background-color: #dc3545;
+}
+
+.action-button:hover {
+    opacity: 0.8;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 18px;
+}

@@ -1,0 +1,21 @@
+.profile-page-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.vehicle-owner-details {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.vehicle-owner-details p {
+    margin: 10px 0;
+}
+
+.vehicle-owner-details img {
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+}
