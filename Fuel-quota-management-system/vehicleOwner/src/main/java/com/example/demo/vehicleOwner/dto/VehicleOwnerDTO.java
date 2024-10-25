@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class VehicleOwnerDTO {
     private String nic;
     private String email;
@@ -15,7 +14,8 @@ public class VehicleOwnerDTO {
     private String password;
     private String vehicleNumber;
     private String vehicleType;
-    private int fuelQuota;
+    private int allocatedFuelQuota;
+    private int remainingFuelQuota;
     private String qrCode;
     
 
@@ -23,6 +23,9 @@ public class VehicleOwnerDTO {
     public String getId(){return nic;}
     public String getVehicleNumber() {
         return vehicleNumber;
+    }
+    public String getVehicleType() {
+        return vehicleType;
     }
 
 }

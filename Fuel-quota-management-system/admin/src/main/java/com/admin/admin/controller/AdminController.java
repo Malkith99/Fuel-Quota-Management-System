@@ -27,7 +27,7 @@ public class AdminController {
     }
 
     @GetMapping("/user/{id}")
-    public UserDTO getUserById(@PathVariable int id) {
+    public UserDTO getUserById(@PathVariable String id) {
         return restTemplate.getForObject(USER_SERVICE_URL + "/vehicleOwner/" + id, UserDTO.class);
     }
 
@@ -38,7 +38,7 @@ public class AdminController {
 
     @PutMapping("/user")
     public UserDTO updateUser(@RequestBody UserDTO userDTO) {
-        restTemplate.put(USER_SERVICE_URL + "/vehicleOwner", userDTO);
+        restTemplate.put(USER_SERVICE_URL + "/qrcode", userDTO);
         return userDTO;
     }
 
