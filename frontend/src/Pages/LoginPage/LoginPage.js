@@ -13,7 +13,7 @@ function LoginPage() {
         e.preventDefault();
         setError('');  // Clear previous error
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/auth', {
+            const response = await axios.post('http://localhost:8080/api/v1/login', {
                 email,
                 password,
             });
