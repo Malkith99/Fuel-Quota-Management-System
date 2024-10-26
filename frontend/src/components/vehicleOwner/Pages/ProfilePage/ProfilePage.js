@@ -14,7 +14,7 @@ function ProfilePage() {
     useEffect(() => {
         if (nic) {
             // Fetch vehicle owner data using the vehicleOwnerDataId(nic)
-            axios.get(`http://localhost:8080/api/v1/vehicleOwner/${nic}`)
+            axios.get(`http://localhost:8082/api/v1/vehicleOwner/${nic}`)
             .then(response => {
                 setVehicleOwnerData(response.data); // Set the fetched data
                 setLoading(false);

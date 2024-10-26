@@ -1,13 +1,18 @@
 .container {
-    max-width: 500px;
+    width: 400px;
+    max-width: 700px;
     margin: auto;
-    padding: 20px;
+    padding: 20px 40px;
+    /* Increased right padding */
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 5px;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-group {
+    width: 350px;
     margin-bottom: 15px;
 }
 
@@ -17,6 +22,8 @@
     margin-top: 5px;
     border-radius: 3px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
+    /* Ensures padding is included within width */
 }
 
 .btn-primary {
@@ -25,6 +32,14 @@
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
 .is-invalid {
@@ -37,8 +52,9 @@
 
 /* Modal styling */
 .modal {
-    display: block;
-    /* Show the modal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -51,19 +67,18 @@
 
 .modal-content {
     background-color: white;
-    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
     max-width: 400px;
     border-radius: 5px;
+    position: relative;
 }
 
 .close {
     position: absolute;
-    color: #aaa;
-    top: 2px;
     right: 10px;
+    top: 10px;
+    color: #aaa;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -73,17 +88,5 @@
 .close:focus {
     color: black;
     text-decoration: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 3px;
     cursor: pointer;
 }

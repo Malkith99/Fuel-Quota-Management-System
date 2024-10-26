@@ -1,0 +1,16 @@
+.userButton {
+    font-size: 18px;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1b52f8;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.buttons_2 {
+    align-self: center;
+    align-items: center;
+    display: flex;
+}

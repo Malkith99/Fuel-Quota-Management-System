@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.display-container {
+    max-width: 600px;
+    /* Limit the width of the display */
+    margin: auto;
+    /* Center the display container */
+    padding: 20px;
+    border: 1px solid #ccc;
+    /* Light border for separation */
+    border-radius: 5px;
+    /* Slightly rounded corners */
+    background-color: #f9f9f9;
+    /* Light background color */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow effect */
+}
+
+.vehicle-owner-details {
+    margin-bottom: 20px;
+    /* Spacing below details */
+}
+
+h2 {
+    text-align: center;
+    /* Center the title */
+    color: #333;
+    /* Darker text for the title */
+}
+
+p {
+    margin: 5px 0;
+    /* Space out paragraphs */
+    font-size: 16px;
+    /* Default font size */
+}
+
+label {
+    display: block;
+    /* Block-level for labels */
+    margin: 10px 0 5px;
+    /* Spacing around labels */
+    font-weight: bold;
+    /* Bold for labels */
+}
+
+input[type="number"] {
+    width: 100%;
+    /* Full width input */
+    padding: 10px;
+    /* Inner padding */
+    border: 1px solid #ccc;
+    /* Light border */
+    border-radius: 4px;
+    /* Rounded corners */
+    box-sizing: border-box;
+    /* Include padding and border in total width */
+}
+
+button {
+    background-color: #007bff;
+    /* Primary button color */
+    color: white;
+    /* Button text color */
+    padding: 10px 15px;
+    /* Button padding */
+    border: none;
+    /* Remove default border */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 16px;
+    /* Button text size */
+    margin-top: 10px;
+    /* Space above button */
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+strong {
+    color: #333;
+    /* Strong text color */
+}
+
+.is-invalid {
+    border-color: red;
+}
+
+.text-danger {
+    color: red;
+    font-size: 0.875em;
+}

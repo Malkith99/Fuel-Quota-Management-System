@@ -51,7 +51,7 @@ function RegistrationPage() {
         const newVehicleOwner={nic,email, name, password,vehicleNumber,vehicleType,fuelQuota:quota}; 
         console.log(newVehicleOwner);       
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/vehicleOwner', newVehicleOwner);
+            const response = await axios.post('http://localhost:8082/api/v1/vehicleOwner', newVehicleOwner);
             console.log(response.data);
             setQrCode(`${nic}-${vehicleNumber}`); // Set the data for the QR code
             setShowQrModal(true); // Show the modal to display the QR code
@@ -108,13 +108,13 @@ function RegistrationPage() {
             console.log(qrCodeBase64);
             const updatedVehicleOwner = { nic,email, name, password,vehicleNumber,vehicleType,fuelQuota, qrCode: qrCodeBase64 }; // Include QR code in the request
             console.log(updatedVehicleOwner);
-            const response = await axios.put('http://localhost:8080/api/v1/vehicleOwner', updatedVehicleOwner);
+            const response = await axios.put('http://localhost:8082/api/v1/vehicleOwner', updatedVehicleOwner);
             console.log(response.status);
 
             if (response.status === 200) {
                 console.log(response);
                 // Redirect to home page and pass the vehicle owner ID
-                navigate('/profile', { state: { nic } });
+                navigate('/VO/profile', { state: { nic } });
             }
         } catch (error) {
             console.log("Error updating QR code:", error);
